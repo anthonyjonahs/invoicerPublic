@@ -1,0 +1,34 @@
+doctype
+html(lang='en')
+	head
+		meta(name='robots', content='noindex')
+		meta(charset='utf-8')
+		link(href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css', rel='stylesheet')
+		title Login
+	body
+		div(style={height:'10vh'})
+		.ui.container
+			.ui.grid
+				.six.wide.column
+					img.ui.centered.medium.rounded.bordered.image(src='http://unsplash.it/400/600' style={'margin-bottom':'-40px'})
+				.nine.wide.column
+					h1.ui.huge.header.aligned(style={'font-size':'90px'}) Invoicer
+					.ui.segment
+						- if (messages.success)
+							each message in messages.success
+								.ui.positive.message
+									p= message
+						- if (messages.error)
+							each message in messages.error
+								.ui.negative.message
+									p= message
+						form.ui.form(action="/login" method="post")
+							.field
+								label Username:
+								input(type='text' name='username')
+							.field
+								label Password:
+								input(type='password' name='password')
+							//- input.ui.button(type='submit' value='Login')
+							button.ui.button(type='submit') Submit
+							

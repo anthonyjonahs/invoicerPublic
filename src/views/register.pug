@@ -1,0 +1,27 @@
+doctype
+html(lang='en')
+	head
+		meta(name='robots', content='noindex')
+		meta(charset='utf-8')
+		link(href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css', rel='stylesheet')
+		title Register
+	body
+		.ui.container
+			h1 Register to Invoicer
+			br
+			- if (messages.error)
+				each message in messages.error
+					.ui.negative.message
+						p= message
+			form.ui.form(action="/register" method="post")
+				.field
+					label Username:
+					input(type='text' name='username')
+				.field
+					label Password:
+					input(type='password' name='password')
+				.field
+					label Confirm Password:
+					input(type='password' name='confirmPassword')
+				button.ui.button(type='submit') Submit
+				
